@@ -123,7 +123,7 @@ Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines' "书签行高亮
 Plugin 'majutsushi/tagbar' "taglist的增强版，查看标签，依赖于ctags
 Plugin 'scrooloose/nerdcommenter' "多行注释，leader键+cc生成, leader+cu删除注释
 Plugin 'scrooloose/nerdtree' "文件浏览
-Plugin 'Valloric/YouCompleteMe' "自动补全
+" Plugin 'Valloric/YouCompleteMe' "自动补全
 Plugin 'kien/ctrlp.vim' "搜索历史打开文件，在命令行模式下按ctrl+p触发
 Plugin 'vim-scripts/grep.vim' "在命令行模式使用grep命令，:Grep
 Plugin 'Lokaltog/vim-easymotion' "快速跳转，按两下leader键和f组合
