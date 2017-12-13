@@ -23,6 +23,7 @@ set gcr=a:block-blinkon0 "禁止关闭闪烁
 set laststatus=2 "总是显示状态栏
 set ruler "显示光标位置
 set number "显示行号
+set relativenumber "显示相对行号
 set cursorline "高亮显示当前行
 "set cursorcolumn "高亮显示当前列
 set hlsearch "高亮显示搜索结果
