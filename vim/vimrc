@@ -54,6 +54,8 @@ set foldmethod=syntax
 " 启动 vim 时关闭折叠代码
 set nofoldenable
 
+" 设置粘贴模式快捷键
+set pastetoggle=<F12>
 " 打开上次文件关闭的位置
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
