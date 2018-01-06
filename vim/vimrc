@@ -109,7 +109,12 @@ nmap <Leader>M %
 nnoremap <Leader>g <C-]>
 nnoremap <Leader>b <C-t>
 
+" 定义快速查找快捷键
 map <c-u> :Ag<space>
+
+" 快速定位当前文件所在路径
+map <Leader>F :NERDTreeFind<CR> 
+
 
 " ************** 插件管理与设置 ************ "
 
