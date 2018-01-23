@@ -1,0 +1,7 @@
+# path is: /etc/zrsync/
+
+host: 192.168.70.250
+user: root
+passwd: yiran
+remotedir: /opt
+localdir: /opt/yiran

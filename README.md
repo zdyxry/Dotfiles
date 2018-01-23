@@ -8,3 +8,7 @@ Yiran's dotfiles
 - [x] Add some plugin
 - [x] Add pastetoggle
 - [x] change leader key
+
+* Rsync
+- [x] Python WatchDog Module
+- [x] rsync to remote host

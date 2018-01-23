@@ -1,0 +1,12 @@
+# systemd service script
+
+[Unit]
+Description=zrsync
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/var/zrsync/zrsync.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
