@@ -8,6 +8,7 @@ Yiran's dotfiles
 - [x] Add some plugin
 - [x] Add pastetoggle
 - [x] change leader key
+- [x] Add ag shortcut key to jump/goback search result file
 
 * Rsync
 - [x] Python WatchDog Module

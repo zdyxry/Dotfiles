@@ -27,7 +27,7 @@ set relativenumber "显示相对行号
 set cursorline "高亮显示当前行
 set cursorcolumn "高亮显示当前列
 set hlsearch "高亮显示搜索结果
-" set nowrap "禁止折行
+set nowrap "禁止折行
 set backspace=2 "回退键生效
 "set backspace=indent,eol,start
 
@@ -86,7 +86,7 @@ nmap <Leader>W :w !sudo tee %<CR>
 "nmap <Leader>WQ :wa<CR>:q<CR>
 
 " 不做任何保存，直接退出 vim
-"nmap <Leader>Q :qa!<CR>
+nmap <Leader>Q :qa!<CR>
 
 " 跳转至右方的窗口
 nnoremap <Leader>l <C-W>l
@@ -110,7 +110,8 @@ nnoremap <Leader>g <C-]>
 nnoremap <Leader>b <C-t>
 
 " 定义快速查找快捷键
-map <c-u> :Ag<space>
+map <c-u> :Ag!<space>
+nnoremap <Leader>B :e#<CR>
 
 " 快速定位当前文件所在路径
 map <Leader>F :NERDTreeFind<CR> 
