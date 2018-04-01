@@ -13,3 +13,6 @@ Yiran's dotfiles
 * Rsync
 - [x] Python WatchDog Module
 - [x] rsync to remote host
+
+* Tmux
+- [x] Keep window's name fixed
