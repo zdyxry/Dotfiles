@@ -88,17 +88,27 @@ nmap <Leader>W :w !sudo tee %<CR>
 " 不做任何保存，直接退出 vim
 nmap <Leader>Q :qa!<CR>
 
-" 跳转至右方的窗口
+" 跳转窗口
 nnoremap <Leader>l <C-W>l
-
-" 跳转至左方的窗口
 nnoremap <Leader>h <C-W>h
-
-" 跳转至上方的子窗口
 nnoremap <Leader>k <C-W>k
-
-" 跳转至下方的子窗口
 nnoremap <Leader>j <C-W>j
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+
+" 跳转 tab
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 " 清除高亮显示
 nmap <Leader>N :noh<CR>
@@ -110,10 +120,12 @@ nnoremap <Leader>g <C-]>
 nnoremap <Leader>b <C-t>
 
 " 定义快速查找快捷键
+" <ctrl-t> open file in new tab
 map <c-u> :Ag!<space>
 nnoremap <Leader>B :e#<CR>
 
 " 快速定位当前文件所在路径
+" t: open file in new tab
 map <Leader>F :NERDTreeFind<CR> 
 
 
