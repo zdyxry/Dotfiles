@@ -152,10 +152,11 @@ Plugin 'vim-scripts/ShowTrailingWhitespace.git' "高亮显示行尾的多余空�
 Plugin 'vim-scripts/indentpython.vim.git'
 Plugin 'rking/ag.vim' " Ag 快速搜索
 Plugin 'vim-scripts/Solarized.git' "主题方案
+Plugin 'dracula/vim.git' " 主题方案
 Plugin 'nathanaelkane/vim-indent-guides.git' "缩进对齐显示
-"Plugin 'vim-scripts/indexer.tar.gz' "自动生成标签
-"Plugin 'vim-scripts/DfrankUtil' "indexer 依赖
-"Plugin 'vim-scripts/vimprj' "indexer 依赖
+" Plugin 'vim-scripts/indexer.tar.gz' "自动生成标签
+" Plugin 'vim-scripts/DfrankUtil' "indexer 依赖
+" Plugin 'vim-scripts/vimprj' "indexer 依赖
 Plugin 'davidhalter/jedi-vim' "python 补全，不依赖于tags,但比较慢，可以使用indexer替换，但不能跳转项目外
 Plugin 'vim-scripts/Markdown'
 Plugin 'tpope/vim-surround'
@@ -266,6 +267,7 @@ else
 endif
 
 :silent! colorscheme solarized
+" :silent! colorscheme dracula
 "colorscheme default
 
 " indent guides
@@ -288,3 +290,10 @@ noremap <Leader>sj :IndentGuidesToggle<CR>
 set colorcolumn=81
 
 " set runtimepath^=~/.vim/bundle/ag
+
+"调用ag进行搜索提升速度，同时不使用缓存文件
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  let g:ctrlp_use_caching = 0
+endif
