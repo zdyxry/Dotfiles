@@ -158,11 +158,13 @@ Plugin 'nathanaelkane/vim-indent-guides.git' "缩进对齐显示
 " Plugin 'vim-scripts/DfrankUtil' "indexer 依赖
 " Plugin 'vim-scripts/vimprj' "indexer 依赖
 Plugin 'davidhalter/jedi-vim' "python 补全，不依赖于tags,但比较慢，可以使用indexer替换，但不能跳转项目外
-Plugin 'vim-scripts/Markdown'
-Plugin 'tpope/vim-surround'
-Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'vim-scripts/Markdown' " Markdown
+Plugin 'tpope/vim-surround' " 成对符号编辑
+Plugin 'ekalinin/Dockerfile.vim' " Docker File
 Plugin 'ConradIrwin/vim-bracketed-paste' " 使用bracketed-paste mode，粘贴代码时避免格式化
-Plugin 'andviro/flake8-vim'
+Plugin 'andviro/flake8-vim' " Python 代码检测
+Plugin 'w0rp/ale' " 异步代码检测工具
+Plugin 'airblade/vim-gitgutter' " git diff 高亮
 " 插件列表结束
 call vundle#end()
 filetype on
@@ -171,7 +173,9 @@ filetype on
 " 设置状态栏主题风格
 let g:Powerline_colorscheme='solarized256'
 
-
+" ale 检测配置
+let g:ale_sign_column_always = 1 " 保持侧边栏可见
+let g:ale_set_highlights = 0 " 关闭高亮
 
 " 设置tagbar
 " 设置 tagbar 子窗口的位置出现在主编辑区的左边
