@@ -164,7 +164,8 @@ Plugin 'ekalinin/Dockerfile.vim' " Docker File
 Plugin 'ConradIrwin/vim-bracketed-paste' " 使用bracketed-paste mode，粘贴代码时避免格式化
 Plugin 'andviro/flake8-vim' " Python 代码检测
 Plugin 'w0rp/ale' " 异步代码检测工具
-Plugin 'airblade/vim-gitgutter' " git diff 高亮
+" Plugin 'airblade/vim-gitgutter' " git diff 高亮
+Plugin 'mhinz/vim-signify' " git diff 高亮
 " 插件列表结束
 call vundle#end()
 filetype on
@@ -270,8 +271,8 @@ else
     ""hi CursorColumn cterm=none ctermbg=darkgray ctermfg=none
 endif
 
-:silent! colorscheme solarized
-" :silent! colorscheme dracula
+" :silent! colorscheme solarized
+:silent! colorscheme dracula
 "colorscheme default
 
 " indent guides
