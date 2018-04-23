@@ -84,3 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias pyzbs='cd ~/project/pyzbs'
+alias proxy='/opt/proxychains/proxychains4'
+cd ~/project/
