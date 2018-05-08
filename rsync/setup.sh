@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+pip install pexpect
+pip install watchdog
+yum install -y rsync
 CONFIG_PATH="/etc/zrsync"
 SCRIPT_PATH="/var/zrsync"
 if [ ! -d $CONFIG_PATH ] ; then
@@ -15,3 +18,4 @@ fi
 cp ./zrsync.service /usr/lib/systemd/system
 systemctl enable zrsync
 systemctl start zrsync 
+
