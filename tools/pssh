@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function sssh () {
+  /usr/bin/ssh-copy-id -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" "$@"; ssh "$@"
+}
+function pssh () {
+  sshpass -p 'abc123' /usr/bin/ssh -o "StrictHostKeyChecking no"  -o "UserKnownHostsFile /dev/null" root@192.168."$@"
+  [ $? -eq 0 ] && return
+  sshpass -p 'abcd1234' /usr/bin/ssh -o "StrictHostKeyChecking no"  -o "UserKnownHostsFile /dev/null" root@192.168."$@";
+  [ $? -eq 0 ] && return
+  sshpass -p '****' /usr/bin/ssh -o "StrictHostKeyChecking no"  -o "UserKnownHostsFile /dev/null" root@192.168."$@";
+  [ $? -eq 0 ] && return
+}
+
+pssh $1 
