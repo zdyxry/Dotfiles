@@ -269,8 +269,8 @@ else
     ""hi CursorColumn cterm=none ctermbg=darkgray ctermfg=none
 endif
 
-:silent! colorscheme solarized
-" :silent! colorscheme dracula
+" :silent! colorscheme solarized
+:silent! colorscheme dracula
 "colorscheme default
 
 " indent guides
@@ -296,7 +296,7 @@ set scrolloff=5 " 光标移动到上下两端,保持3行距离
 
 " set runtimepath^=~/.vim/bundle/ag
 
-"调用ag进行搜索提升速度，同时不使用缓存文件
+" CtrlP 调用ag进行搜索提升速度，同时不使用缓存文件
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
