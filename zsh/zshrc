@@ -87,4 +87,5 @@ source $ZSH/oh-my-zsh.sh
 alias pyzbs='cd ~/project/pyzbs'
 alias proxy='/opt/proxychains/proxychains4'
 alias vi='vim'
-cd ~/project/
+export DISPLAY=localhost:0.0
+
