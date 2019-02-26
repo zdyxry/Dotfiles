@@ -89,3 +89,6 @@ alias proxy='/opt/proxychains/proxychains4'
 alias vi='vim'
 export DISPLAY=localhost:0.0
 
+export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
+#export http_proxy=http://127.0.0.1:8118
+eval "$(lua /usr/local/bin/z.lua --init zsh)"

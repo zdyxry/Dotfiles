@@ -9,6 +9,7 @@ Yiran's dotfiles
 - [x] Add pastetoggle
 - [x] change leader key
 - [x] Add ag shortcut key to jump/goback search result file
+- [x] Add vim-go plugin
 
 * Rsync
 - [x] Python WatchDog Module
@@ -16,3 +17,8 @@ Yiran's dotfiles
 
 * Tmux
 - [x] Keep window's name fixed
+
+* Tools
+- [x] z.lua
+- [x] ack
+- [x] pssh

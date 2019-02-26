@@ -10,7 +10,7 @@ tmux new-window -t $session_name:4 -n 30.111
 
 tmux send -t $session_name:1 "j project" Enter
 tmux send -t $session_name:2 "j pyzbs" Enter
-tmux send -t $session_name:3 "ssh 192.168.30.250 & " Enter
+tmux send -t $session_name:3 "ssh 192.168.30.250 " Enter
 tmux send -t $session_name:4 "pssh 30.111" Enter
 
 tmux ls |grep $session_name
