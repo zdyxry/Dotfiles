@@ -1,0 +1,12 @@
+[Unit]
+Description=clash.service
+After=network.target
+
+[Service]
+Type=simple
+User=yiran
+ExecStart=/usr/local/bin/clash-linux-amd64-v0.16.0
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
