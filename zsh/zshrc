@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/root/.oh-my-zsh
+  export ZSH=/$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -84,11 +84,104 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pyzbs='cd ~/project/pyzbs'
-alias proxy='/opt/proxychains/proxychains4'
-alias vi='vim'
-export DISPLAY=localhost:0.0
+#alias vi='vim'
+#export DISPLAY=localhost:0.0
 
-export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
-#export http_proxy=http://127.0.0.1:8118
+# z.lua
 eval "$(lua /usr/local/bin/z.lua --init zsh)"
+
+# Golang
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+# virtualenv
+export PATH=$PATH:$HOME/.local/bin
+
+
+# Proxy
+## proxyon
+proxyon() {
+    export https_proxy=http://127.0.0.1:7890
+    export http_proxy=http://127.0.0.1:7890
+    export all_proxy=socks5://127.0.0.1:7891
+    echo "HTTP/HTTPS Proxy on"
+}
+
+## proxyoff
+proxyoff() {
+    unset http_proxy
+    unset https_proxy
+    unset all_proxy
+    echo "HTTP/HTTPS Proxy off"
+}
+
+
+# SSH
+
+function sssh () {
+    /usr/bin/ssh-copy-id -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" "$@"; ssh "$@"
+}
+function pssh () {
+    sshpass -p 'abc123' /usr/bin/ssh -o "StrictHostKeyChecking no"  -o "UserKnownHostsFile /dev/null" root@192.168."$@"
+    [ $? -eq 0 ] && return
+    #sshpass -p 'abcd1234' /usr/bin/ssh -o "StrictHostKeyChecking no"  -o "UserKnownHostsFile /dev/null" root@192.168."$@";
+    #[ $? -eq 0 ] && return
+    #sshpass -p 'gateway' /usr/bin/ssh -o "StrictHostKeyChecking no"  -o "UserKnownHostsFile /dev/null" root@192.168."$@";
+    #[ $? -eq 0 ] && return
+}
+
+# loc
+
+function locdir() {
+    for i in `ll |grep ^d | awk '{print $NF}'`;do echo $i; loc $i;done
+}
+
+# TMUX
+
+function autotmux() {
+    session_name="work"
+
+    tmux new -d -s $session_name
+    tmux new-window -t $session_name:2 -n local
+    tmux new-window -t $session_name:3 -n 30.250
+
+    tmux send -t $session_name:2 "z pyzbs" Enter
+    tmux send -t $session_name:3 "pssh 30.250 " Enter
+
+    tmux ls |grep $session_name
+    tmux attach -t $session_name
+
+}
+
+function py2venv() {
+    source /home/yiran/Documents/py2-venv/bin/activate
+}
+
+function unpy2venv() {
+    deactivate
+}
+
+# GOVC
+# vCenter host
+export GOVC_URL=192.168.71.255
+# vCenter credentials
+export GOVC_USERNAME="vsphere.local\administrator"
+export GOVC_PASSWORD="!QAZ2wsx"
+# disable cert validation
+export GOVC_INSECURE=false
+
+
+# resetvm
+
+function resetvm() {
+    govc vm.power -off=true -dc=BJ_IDC node1
+    govc vm.power -off=true -dc=BJ_IDC node2
+    govc vm.power -off=true -dc=BJ_IDC node3
+    govc snapshot.revert -dc=BJ_IDC -vm=node1 installed2
+    govc snapshot.revert -dc=BJ_IDC -vm=node2 installed2
+    govc snapshot.revert -dc=BJ_IDC -vm=node3 installed2
+    govc vm.power -on=true -dc=BJ_IDC node1
+    govc vm.power -on=true -dc=BJ_IDC node2
+    govc vm.power -on=true -dc=BJ_IDC node3
+}
