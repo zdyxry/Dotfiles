@@ -134,6 +134,7 @@ Release: 2%{?dist}
 License: Python
 Requires: %{python}-libs%{?_isa} = %{version}-%{release}
 Provides: python(abi) = %{pybasever}
+Provides: python-abi = %{pybasever}
 
 %?deprecated
 
@@ -751,6 +752,21 @@ Patch5000: 05000-autotool-intermediates.patch
 # ======================================================
 # Additional metadata, and subpackages
 # ======================================================
+
+Obsoletes: Distutils
+Provides: Distutils
+Provides: python2 = %{version}
+Obsoletes: python-elementtree <= 1.2.6
+Obsoletes: python-sqlite < 2.3.2
+Provides: python-sqlite = 2.3.2
+Obsoletes: python-ctypes < 1.0.1
+Provides: python-ctypes = 1.0.1
+Obsoletes: python-hashlib < 20081120
+Provides: python-hashlib = 20081120
+Obsoletes: python-uuid < 1.31
+Provides: python-uuid = 1.31
+Provides:   python-argparse = %{version}-%{release}
+
 
 %description
 Python 2 is an old version of the language that is incompatible with the 3.x
@@ -1509,9 +1525,9 @@ rm %{buildroot}%{_bindir}/*.py{c,o}
 # Remove all remaining unversioned commands
 # https://fedoraproject.org/wiki/Changes/Python_means_Python3
 #rm %{buildroot}%{_bindir}/python
-rm %{buildroot}%{_bindir}/python-config
+#rm %{buildroot}%{_bindir}/python-config
 rm %{buildroot}%{_mandir}/*/python.1*
-rm %{buildroot}%{_libdir}/pkgconfig/python.pc
+#rm %{buildroot}%{_libdir}/pkgconfig/python.pc
 #%if %{with debug_build}
 ##rm %{buildroot}%{_bindir}/python-debug
 ##rm %{buildroot}%{_bindir}/python-debug-config
@@ -1760,7 +1776,10 @@ CheckPython \
 
 
 %files devel
+%defattr(-,root,root,-)
+%{_bindir}/python-config
 %{_libdir}/pkgconfig/python-%{pybasever}.pc
+%{_libdir}/pkgconfig/python.pc
 %{_libdir}/pkgconfig/python2.pc
 %{pylibdir}/config/*
 %exclude %{pylibdir}/config/Makefile
