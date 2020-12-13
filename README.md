@@ -22,3 +22,7 @@ Yiran's dotfiles
 - [x] z.lua
 - [x] ack
 - [x] pssh
+
+* Windows Terminal
+- [x] Support 'alt + <number>' switch tab
+- [x] auto copy selected text
